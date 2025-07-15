@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/providers /ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
-import { Divide } from "lucide-react";
 import Header from "@/components/Header";
 
 

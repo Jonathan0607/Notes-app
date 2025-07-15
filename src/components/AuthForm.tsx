@@ -1,10 +1,13 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import { CardContent } from "./ui/card";
+import { CardContent, CardFooter } from "./ui/card";
 import { Label } from "@radix-ui/react-label";
 import { Input } from "./ui/input";
 import { useTransition } from "react";
+import { Button } from "./ui/button";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
 
 type Props = {
     type: "login" | "register";
@@ -45,6 +48,18 @@ function AuthForm({ type }: Props) {
                     ></Input>
                 </div>
             </CardContent>
+            <CardFooter className="flex flex-col gap-6 mt-4">
+                <Button className="w-full" >
+                    {isPending ? <Loader2 className="animate-spin" /> : isLogin ? "Login" : "Register"}
+                </Button>
+                <p className="test-xs">{isLogin ? "Don't have an account?" : "Already have an account?"}</p>
+                <Link
+                    href={isLogin ? "/signup" : "/login"}
+                    className={'text-blue-500 hover underline ${isPending ? "pointer-events-none opacity-50" :""}'}
+                >
+                    {isLogin ? "Create an account" : "Login to your account"}
+                </Link>
+            </CardFooter>
         </form>
 
     );
