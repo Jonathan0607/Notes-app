@@ -1,5 +1,6 @@
+
 function HomePage() {
-  return ( <div className="bg-red-400">Home Page</div> );
+  return ( <div>Home page</div> );
 }
 
 export default HomePage;
