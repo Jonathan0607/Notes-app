@@ -1,41 +1,41 @@
-"use client"
+"use client";
 
-import { use, useState } from "react";
-import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
-import { toast } from "sonner";
+import { Button } from "./ui/button";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { logOutAction } from "@/actions/users";
+import { toast } from "sonner";
 
 function LogOutButton() {
-    const [loading, setLoading] = useState(false);
-    const router = useRouter();
+  const router = useRouter();
 
-    const handleLogout = async () => {
-        setLoading(true);
+  const [loading, setLoading] = useState(false);
 
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+  const handleLogOut = async () => {
+    setLoading(true);
 
-        setLoading(false);
+    const { errorMessage } = await logOutAction();
 
-        const errorMessage = null;
-
-        if (!errorMessage) {
-            toast.success("Logged out successfully");
-        }
-        router.push("/");
-        if (errorMessage) {
-            toast.error(errorMessage);
-        }
+    if (!errorMessage) {
+      router.push(`/?toastType=logOut`);
+    } else {
+      toast.error(errorMessage);
     }
-    return (
-        <Button
-            className="w-24"
-            variant={"outline"} 
-            onClick={() => { handleLogout() }} 
-            disabled={loading}
-        >
-            {loading ? <Loader2 className="animate-spin" /> : "Logout"}
-        </Button>);
+
+    setLoading(false);
+  };
+
+  return (
+    <Button
+      variant="outline"
+      onClick={handleLogOut}
+      disabled={loading}
+      className="w-24"
+    >
+      {loading ? <Loader2 className="animate-spin" /> : "Log Out"}
+    </Button>
+  );
 }
 
 export default LogOutButton;

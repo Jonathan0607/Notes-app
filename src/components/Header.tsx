@@ -4,9 +4,10 @@ import { shadow } from "@/styles/utils";
 import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
 import LogOutButton from "./LogOutButton";
+import { getUser } from "@/auth/server";
 
-function Header() {
-    const user = null;
+async function Header() {
+    const user = await getUser();
 
     return (
         <header className="relative flex items-center justify-between h-24 w-full bg-popover px-3 sm:px-8"
@@ -27,15 +28,14 @@ function Header() {
                 ) : (
                     <>
                         <Button asChild className="hidden sm:block">
-                            <Link href="/register">Register</Link>
+                            <Link href="/signup">Sign Up</Link>
                         </Button>
                         <Button asChild variant="outline">
                             <Link href="/login">Login</Link>
                         </Button>
 
                     </>
-                )
-                }
+                )}
                 <DarkModeToggle />
             </div>
         </header>);
