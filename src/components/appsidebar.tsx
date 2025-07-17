@@ -7,8 +7,8 @@ import {
 } from "@/components/ui/sidebar"
 import { prisma } from "@/db/prisma";
 import { Note } from "@prisma/client";
-import { Link } from "lucide-react";
 import SidebarGroupContent from "./SidebarGroupContent";
+import Link from "next/link";
 
 async function AppSidebar() {
 
@@ -32,14 +32,14 @@ async function AppSidebar() {
     <Sidebar>
       <SidebarContent >
         <SidebarGroup />
-        <SidebarGroupLabel>
+        <SidebarGroupLabel className="mb-2 mt-2 text-lg">
           {user ? (
             "Your Notes"
           ) : (
             <p>
               <Link href="/login" className="underline">
               Login
-              </Link>{""}
+              </Link>{" "}
               to see your notes
             </p>
           )}

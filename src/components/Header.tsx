@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
 import LogOutButton from "./LogOutButton";
 import { getUser } from "@/auth/server";
+import { Sidebar } from "lucide-react";
 
 async function Header() {
     const user = await getUser();
@@ -12,6 +13,7 @@ async function Header() {
     return (
         <header className="relative flex items-center justify-between h-24 w-full bg-popover px-3 sm:px-8"
             style={{ boxShadow: shadow }}>
+            <Sidebar className="absolute left-1 top-1" />
             <Link className="flex items-end gap-2" href="/">
                 <Image
                     src="/logo.png"
