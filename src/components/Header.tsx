@@ -13,7 +13,6 @@ async function Header() {
     return (
         <header className="relative flex items-center justify-between h-24 w-full bg-popover px-3 sm:px-8"
             style={{ boxShadow: shadow }}>
-            <Sidebar className="absolute left-1 top-1" />
             <Link className="flex items-end gap-2" href="/">
                 <Image
                     src="/logo.png"

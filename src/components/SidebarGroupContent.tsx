@@ -2,7 +2,7 @@
 
 import { Note } from "@prisma/client";
 import { SidebarGroupContent as SidebarGroupContentShadCN, SidebarMenu, SidebarMenuItem } from "@/components/ui/sidebar";
-import { Delete, SearchIcon } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 import { Input } from "./ui/input";
 import { useEffect, useMemo, useState } from "react";
 import Fuse from "fuse.js";
