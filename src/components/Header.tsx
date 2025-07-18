@@ -14,7 +14,7 @@ async function Header() {
             style={{ boxShadow: shadow }}>
             <Link className="flex items-end gap-2" href="/">
                 <Image
-                    src="/logo.png"
+                    src="/Logo.png"
                     alt="Logo"
                     width={50}
                     height={50}
