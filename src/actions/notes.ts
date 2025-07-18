@@ -4,6 +4,7 @@ import { prisma } from "@/db/prisma";
 import { handleError } from "@/lib/utils";
 import openai from "@/openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
+import "@/styles/ai.css";
 
 
 export const updateNoteAction = async (noteId: string,text: string) =>{
@@ -84,7 +85,7 @@ export const askAIAction = async (newQuestion:string[],responses:string[]) => {
           Make sure that your answers are not too verbose and you speak succinctly. 
           Your responses MUST be formatted in clean, valid HTML with proper structure. 
           Use tags like <p>, <strong>, <em>, <ul>, <ol>, <li>, <h1> to <h6>, and <br> when appropriate. 
-          Do NOT wrap the entire response in a single <p> tag unless it's a single paragraph. 
+          Do NOT wrap the entire response in a single <p> tag. 
           Avoid inline styles, JavaScript, or custom attributes.
           
           Rendered like this in JSX:
