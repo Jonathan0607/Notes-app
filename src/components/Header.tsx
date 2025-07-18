@@ -13,13 +13,6 @@ async function Header() {
         <header className="relative flex items-center justify-between h-24 w-full bg-popover px-3 sm:px-8"
             style={{ boxShadow: shadow }}>
             <Link className="flex items-end gap-2" href="/">
-                <Image
-                    src="/Logo.png"
-                    alt="Logo"
-                    width={50}
-                    height={50}
-                    className="logo"
-                />
                 <h1 className="flex flex-col pb-1 text-2xl font-semibold leading-6">AI <span>Notes</span></h1>
             </Link>
             <div className="flex gap-4">
