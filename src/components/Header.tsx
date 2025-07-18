@@ -5,7 +5,6 @@ import { Button } from "./ui/button";
 import DarkModeToggle from "./DarkModeToggle";
 import LogOutButton from "./LogOutButton";
 import { getUser } from "@/auth/server";
-import { Sidebar } from "lucide-react";
 
 async function Header() {
     const user = await getUser();
